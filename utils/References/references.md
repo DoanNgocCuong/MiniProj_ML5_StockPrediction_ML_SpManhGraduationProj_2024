@@ -7,3 +7,4 @@ https://github.com/DoanNgocCuong/MiniProj_GoldPricePrediction_DataScience_ITE10H
 
 ### vnstock3
 https://vnstocks.com/docs/huong-dan/recipe-template-workflow-mau-ung-dung
+https://vnstocks.com/docs/tai-lieu/huong-dan-nhanh
