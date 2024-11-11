@@ -1,14 +1,4 @@
 
-Deal: 
-
-Nguyễn Đức Mạnh		"- Bên user: thầy cô ko rep, ko quá mạnh về kinh tế chứng khoán 
-- Ra ngay budge 2.5-3 triệu trên bài đăng 
-- Đồ án nên muốn làm chỉn chu, 
-- Khó ở cái làm 9-10 công ty lận, nhiều cái cần xử lý
-- Thời gian 1 tháng"	"Chốt luôn 2 triệu 900k <đã từng làm đề tài, thậm chí có code>. 
-"		https://www.facebook.com/profile.php?id=100011544648795 
-
-===============
 
 Yêu cầu của đề tài là phân tích dự báo giá chứng khoán của các công ty trong 1 ngành (IT, Banking, Invester..), cho nên em phải liệt kê tất cả các công ty trong khối ngành công nghệ thông tin ở VN. Sau đó sẽ lựa chọn các công ty này để lấy dữ liệu. Không giới hạn ở 10 công ty, có thể nhiều hơn hoặc ít hơn.
 Về phần dữ liệu mua bán bằng 0, điều đó thường gặp ở các mã chứng khoán. Chúng ta phải phân tích cho từng mã cụ thể, từng thời điểm cụ thể để sử dụng các kỹ thuật cho phù hợp. 
