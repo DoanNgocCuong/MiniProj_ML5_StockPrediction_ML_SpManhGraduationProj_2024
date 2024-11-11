@@ -1,5 +1,3 @@
-
-
 Yêu cầu của đề tài là phân tích dự báo giá chứng khoán của các công ty trong 1 ngành (IT, Banking, Invester..), cho nên em phải liệt kê tất cả các công ty trong khối ngành công nghệ thông tin ở VN. Sau đó sẽ lựa chọn các công ty này để lấy dữ liệu. Không giới hạn ở 10 công ty, có thể nhiều hơn hoặc ít hơn.
 Về phần dữ liệu mua bán bằng 0, điều đó thường gặp ở các mã chứng khoán. Chúng ta phải phân tích cho từng mã cụ thể, từng thời điểm cụ thể để sử dụng các kỹ thuật cho phù hợp. 
 - Nếu trong thời kỳ covid, tần suất mua bán bằng 0 nhiều (chứng minh nhiều) ta tách thời kỳ covid ra và phân tích tác động của covid đến giá chứng khoán, hoặc phân tích khả năng phục hồi của công ty sau thời kỳ covid.
