@@ -1,0 +1,7 @@
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+R2: 0.9809
+Directional Accuracy (DA): 47.25%
+MSE: 8577220.8416
+RMSE: 2928.6893
+MAE: 1968.1678
+MAPE%: 2.86%

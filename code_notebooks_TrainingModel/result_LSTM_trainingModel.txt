@@ -1,0 +1,78 @@
+fdfdsfasdf
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/FPT_stock_data.csv
+R2: 0.9729
+Directional Accuracy (DA): 46.72%
+MSE: 17081202.2897
+RMSE: 4132.9411
+MAE: 3261.2329
+MAPE%: 3.21%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/CMG_stock_data.csv
+R2: 0.7986
+Directional Accuracy (DA): 47.54%
+MSE: 18124839.4203
+RMSE: 4257.3277
+MAE: 2637.8344
+MAPE%: 4.86%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/CMT_stock_data.csv
+R2: 0.9051
+Directional Accuracy (DA): 38.36%
+MSE: 1679012.4013
+RMSE: 1295.7671
+MAE: 831.1867
+MAPE%: 4.93%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/DGW_stock_data.csv
+R2: 0.8332
+Directional Accuracy (DA): 43.44%
+MSE: 3535503.8598
+RMSE: 1880.2936
+MAE: 1524.3670
+MAPE%: 3.59%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/ELC_stock_data.csv
+R2: 0.9259
+Directional Accuracy (DA): 46.45%
+MSE: 1800665.3287
+RMSE: 1341.8887
+MAE: 1094.5693
+MAPE%: 5.16%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/FPT_stock_data.csv
+R2: 0.9596
+Directional Accuracy (DA): 45.08%
+MSE: 25489615.6809
+RMSE: 5048.7242
+MAE: 4026.8259
+MAPE%: 3.94%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/SAM_stock_data.csv
+R2: 0.8527
+Directional Accuracy (DA): 45.08%
+MSE: 34768.1339
+RMSE: 186.4622
+MAE: 132.5855
+MAPE%: 1.93%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VGC_stock_data.csv
+R2: 0.9282
+Directional Accuracy (DA): 44.51%
+MSE: 1802652.9990
+RMSE: 1342.6291
+MAE: 1011.7061
+MAPE%: 2.16%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VGI_stock_data.csv
+R2: 0.9270
+Directional Accuracy (DA): 49.45%
+MSE: 52926661.8076
+RMSE: 7275.0713
+MAE: 4132.2628
+MAPE%: 6.04%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTL_stock_data.csv
+R2: 0.9499
+Directional Accuracy (DA): 62.36%
+MSE: 675797.0945
+RMSE: 822.0688
+MAE: 472.0413
+MAPE%: 6.70%
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+R2: 0.9781
+Directional Accuracy (DA): 48.90%
+MSE: 9858247.2094
+RMSE: 3139.7846
+MAE: 2078.7055
+MAPE%: 3.04%
