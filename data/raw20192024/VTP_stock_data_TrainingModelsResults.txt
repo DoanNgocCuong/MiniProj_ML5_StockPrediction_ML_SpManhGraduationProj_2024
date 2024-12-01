@@ -1,0 +1,50 @@
+Model: Ridge Regression
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9885
+MSE: 1835977.9577
+RMSE: 1354.9826
+MAE: 918.0128
+MAPE%: 1.89%
+Directional Accuracy (DA): 48.36%
+
+TEST SET METRICS:
+R2: 0.9861
+MSE: 6290312.2946
+RMSE: 2508.0495
+MAE: 1635.6759
+MAPE%: 2.34%
+Directional Accuracy (DA): 44.69%
+==================================================
+Model: LSTM Model
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9778
+MSE: 3574730.6373
+RMSE: 1890.6958
+MAE: 1356.0553
+MAPE%: 2.76%
+
+TEST SET METRICS:
+R2: 0.9054
+MSE: 42475606.4311
+RMSE: 6517.3312
+MAE: 4791.7497
+MAPE%: 6.74%
+==================================================
+Model: ARIMA Model (order=(5, 1, 0))
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9832
+MSE: 2687331.7914
+RMSE: 1639.3083
+MAE: 762.0678
+MAPE%: 1.56%
+
+TEST SET METRICS:
+R2: -2.1530
+MSE: 1401827061.7249
+RMSE: 37440.9810
+MAE: 30941.6199
+MAPE%: 41.80%
+==================================================

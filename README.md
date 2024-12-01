@@ -150,11 +150,17 @@ The code: `tscv = TimeSeriesSplit(n_splits=3)` will creat a time-series cross-va
 
 1. **Multi Linear Regression:**
 - Training full các file Dataset trên RIDGE Linear Regression model: file `manyDataset_RIDGELinearRegModel.ipynb`
-- Kết quả training xem ở file `result_LinearReg_trainingModel.txt`
+
 2. **LSTM:**
 - Training full các file Dataset trên LSTM model: file `manyDataset_LSTM_Model.ipynb`
-- Kết quả training xem ở file `result_LSTM_trainingModel.txt`
 
+3. **ARIMA:**
+- Training full các file Dataset trên ARIMA model: file `manyDataset_ARIMA_Model.ipynb`
+--------------------------
+- Với từng cổ phiếu, xem kết quả của cổ phiếu đó với 3 models tại: `data/raw20192024/..._stock_data_TrainingModelsResults.txt`
+
+-----------
+Xem kỹ: `2_code_notebooks_TrainingModel\utils\note2_TrainingModel.md` để hiểu hơn về các model hoạt động?
 
 # 3. TESTING MODEL VÀ BUILD WEB APP: 
 - Thời gian tới dựng UI cho web app
