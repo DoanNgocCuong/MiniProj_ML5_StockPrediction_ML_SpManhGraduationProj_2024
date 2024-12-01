@@ -20,6 +20,8 @@ bây giờ sẽ cần phải làm
 
 3. Report
 1. phải dự đoán giá cổ phiếu của 10 cái chứng khoán đó bằng ít nhất 3 loại mô hình ( lstm model, arima, liner, Prophet) rồi dựa vào cái chỉ số  RMSE, MAE, MSE để kiếm tra cái mô hình tốt nhất cho 10 cái cổ phiếu đó.
+Và cái 1 bảng so sánh kết quả giữa dự đoán với thực tế như thế này của mỗi data 
+
 2. Ứng dụng mua bán theo cặp:
 chọn ra 2 cặp tiêu biểu của 2  Trading Reversal và Pair Trading: 
 vd : Pair Trading lấy FPT và CMG  
