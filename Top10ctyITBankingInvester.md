@@ -40,3 +40,17 @@
     - A major player in ICT distribution, providing hardware and software solutions to businesses across Vietnam.
     - [Company Website](https://www.digiworld.com.vn)
 
+
+
+1. **CMG** - Công ty Cổ phần Tập đoàn Công nghệ CMC  
+2. **CMT** - Công ty Cổ phần Công nghệ và Truyền thông CMT  
+3. **DGW** - Công ty Cổ phần Thế Giới Số  
+4. **ELC** - Công ty Cổ phần Đầu tư Phát triển Công nghệ Điện tử - Viễn thông  
+5. **FPT** - Công ty Cổ phần FPT  
+6. **SAM** - Công ty Cổ phần Sam Holdings  
+7. **VGC** - Tổng Công ty Viglacera - CTCP  
+8. **VGI** - Tổng Công ty Cổ phần Đầu tư Quốc tế Viettel  
+9. **VTL** - Công ty Cổ phần Viễn thông VTC  
+10. **VTP** - Tổng Công ty Cổ phần Bưu chính Viettel  
+
+Danh sách này phù hợp để sử dụng trong dự án dự đoán giá cổ phiếu ngành công nghệ thông tin.
