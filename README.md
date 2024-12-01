@@ -126,6 +126,7 @@ Link facebook của bạn: https://www.facebook.com/profile.php?id=1000115446487
 - **Cổ phiếu cùng chiều**: Tận dụng chiến lược pair trading cho các cặp có tương quan cao để giảm thiểu rủi ro.
 - **Cổ phiếu ngược chiều**: Khai thác sự phân kỳ cho chiến lược giao dịch đảo chiều, giúp tối ưu hóa lợi nhuận khi thị trường biến động.
 
+------------------------------------
 
 # 2. TRAINING MODEL 
 
@@ -156,16 +157,23 @@ The code: `tscv = TimeSeriesSplit(n_splits=3)` will creat a time-series cross-va
 
 3. **ARIMA:**
 - Training full các file Dataset trên ARIMA model: file `manyDataset_ARIMA_Model.ipynb`
---------------------------
-- Với từng cổ phiếu, xem kết quả của cổ phiếu đó với 3 models tại: `data/raw20192024/..._stock_data_TrainingModelsResults.txt`
 
------------
 Xem kỹ: `2_code_notebooks_TrainingModel\utils\note2_TrainingModel.md` để hiểu hơn về các model hoạt động?
 
 --------
-### Report 
 
-Dưới đây là đánh giá tổng quan về hiệu suất của các mô hình dự đoán giá cổ phiếu dựa trên các file kết quả trong thư mục `data/raw20192024`:
+## 2.3 Kết quả dự đoán giá cổ phiếu của các model: 
+- Linear Regression đang cho thấy kết quả tốt hơn các model: LSTM và ARIMA. Kết quả xem tại: `2_code_notebooks_TrainingModel\results` với từng loại trong 10 cổ phiếu. 
+- Các kết quả giữa GIÁ THỰC TẾ và GIÁ DỰ ĐOÁN xem tại: `2_code_notebooks_TrainingModel\compare_RealVsPredict`
+và `2_code_notebooks_TrainingModel\compare_RealVsPredict\code_read_compare_RealVSPrdiction.ipynb`
+
+```
+Dự đoán giá cổ phiếu của 10 cái chứng khoán đó bằng ít nhất 3 loại mô hình ( lstm model, arima, liner, Prophet) rồi dựa vào cái chỉ số  RMSE, MAE, MSE để kiếm tra cái mô hình tốt nhất cho 10 cái cổ phiếu đó
+
+Và cái 1 bảng so sánh kết quả giữa dự đoán với thực tế của mỗi data tại: `2_code_notebooks_TrainingModel\compare_RealVsPredict\code_read_compare_RealVSPrdiction.ipynb`
+```
+
+### Đánh giá tổng quan về hiệu suất của các mô hình dự đoán giá cổ phiếu dựa trên các file kết quả trong thư mục `2_code_notebooks_TrainingModel\results`:
 
 #### **1. Tổng quan về các mô hình**
 - **Mô hình Ridge Regression**:
@@ -197,6 +205,81 @@ Dưới đây là đánh giá tổng quan về hiệu suất của các mô hìn
 - **Khuyến nghị**: Cần thực hiện thêm các bước như điều chỉnh tham số, thử nghiệm với các mô hình khác, và cải thiện độ chính xác tuyệt đối của các mô hình để đạt được kết quả tốt hơn trong dự đoán giá cổ phiếu.
 - **Hướng phát triển**: Nên xem xét việc kết hợp các mô hình (ensemble methods) hoặc sử dụng các kỹ thuật học sâu khác để cải thiện hiệu suất dự đoán.
 
+-----------------------------------------------------
 
-# 3. TESTING MODEL VÀ BUILD WEB APP: 
+# 3. Pair Trading Strategy và Reversal Trading Strategy:
+
+```
+Ứng dụng mua bán theo cặp:
+chọn ra 2 cặp tiêu biểu của 2  Trading Reversal và Pair Trading: 
+vd : Pair Trading lấy FPT và CMG  
+Kịch bản: 
++ giá tb cổ phiếu FPT: 89,112 đồng
++ giá tb cổ phiếu CMG 42,353 đồng ( trong code)
+mua 1000 cp mỗi loại trong 100 ngày tiếp theo sẽ đưa ra quyết định mua hay bán, xong 100 ngày sẽ thống kê là lời bao nhiêu lỗ bao nhiêu rồi đưa ra kết luận
+Trading Reversal  cũng sẽ như thế
+```
+## 3.1 Tiến hành Pair Trading với 2 cặp cổ phiếu: `3_Prediction\PairTradingStratergy_onlyClosePrice.ipynb`   : FPT-CMG
+
+#### **Bảng Kết Quả Kiểm Định Chiến Lược**
+
+| **Thời gian kiểm định** | **Chiến lược**    | **Ngưỡng mở vị thế (z_open_threshold)** | **Ngưỡng đóng vị thế (z_close_threshold)** | **Mức chốt lời (profit_target)** | **Mức cắt lỗ (loss_limit)** | **Số giao dịch (number_of_trades)** | **Tổng lợi nhuận (total_profit)** | **Lợi nhuận trung bình/giao dịch (average_profit_per_trade)** |
+|--------------------------|-------------------|-----------------------------------------|-------------------------------------------|----------------------------------|-----------------------------|-------------------------------------|-----------------------------------|-----------------------------------------|
+
+---
+
+| **Thời gian**   | **Chiến lược** | **z_open_threshold** | **z_close_threshold** | **profit_target** | **loss_limit** | **Số giao dịch** | **Tổng lợi nhuận** | **Lợi nhuận TB/giao dịch** |
+|------------------|----------------|-----------------------|-----------------------|-------------------|----------------|------------------|--------------------|----------------------------|
+| **100 ngày gần nhất**     | **1**          | ±2.0                 | ±0.0                 | Không áp dụng     | Không áp dụng  | 2                | -3,600,000 VND     | -1,800,000 VND             |
+| **100 ngày gần nhất**     | **2**          | ±2.5                 | ±0.5                 | 7,000,000 VND     | -4,000,000 VND | 2                | 12,700,000 VND     | 6,350,000 VND              |
+| **300 ngày gần nhất**     | **1**          | ±2.0                 | ±0.0                 | Không áp dụng     | Không áp dụng  | 8                | 33,200,000 VND     | 4,150,000 VND              |
+| **300 ngày gần nhất**     | **2**          | ±2.5                 | ±0.5                 | 7,000,000 VND     | -4,000,000 VND | 4                | 12,230,000 VND     | 3,057,500 VND              |
+| **600 ngày gần nhất**     | **1**          | ±2.0                 | ±0.0                 | Không áp dụng     | Không áp dụng  | 22               | 9,650,000 VND      | 438,636 VND                |
+| **600 ngày gần nhất**     | **2**          | ±2.5                 | ±0.5                 | 7,000,000 VND     | -4,000,000 VND | 10               | 6,360,000 VND      | 636,000 VND                |
+| **1000 ngày gần nhất**    | **1**          | ±2.0                 | ±0.0                 | Không áp dụng     | Không áp dụng  | 30               | 32,240,000 VND     | 1,074,667 VND              |
+| **1000 ngày gần nhất**    | **2**          | ±2.5                 | ±0.5                 | 7,000,000 VND     | -4,000,000 VND | 20               | 4,250,000 VND      | 212,500 VND                |
+
+---
+
+
+#### **Nhận xét**
+- **Chiến lược 1**:
+  - Hiệu quả hơn trên các khoảng thời gian dài hạn (300-1000 ngày) với tổng lợi nhuận cao.
+  - Phù hợp với phong cách giao dịch nhiều lần, tạo dòng tiền liên tục.
+
+- **Chiến lược 2**:
+  - Nổi bật ở ngắn hạn (100-300 ngày) với lợi nhuận trung bình/giao dịch cao.
+  - Phù hợp với phong cách giao dịch ít lần, tập trung vào các cơ hội lớn.
+
+--- 
+
+#### **Khuyến nghị**
+- **Ngắn hạn (100-300 ngày)**: Ưu tiên **Chiến lược 2** để kiểm soát rủi ro tốt hơn.
+- **Dài hạn (600-1000 ngày)**: Chọn **Chiến lược 1** để tối ưu tổng lợi nhuận.
+
+## 3.2 Tiến hành Reversal Trading với 2 cặp cổ phiếu: `3_Prediction\ReversalTradingStratergy_onlyClosePrice.ipynb`   : FPT-CMG
+
+**Tóm tắt Sự Khác Biệt: Trading Reversal Đơn Lẻ và Trading Reversal Theo Cặp**
+
+| **Tiêu chí**                  | **Trading Reversal Đơn Lẻ**                                                                          | **Trading Reversal Theo Cặp**                                                                                      |
+|-------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| **Định nghĩa**                | Giao dịch dựa trên một cổ phiếu hoặc tài sản duy nhất.                                              | Giao dịch dựa trên hai cổ phiếu hoặc tài sản có mối tương quan đặc biệt (thường là âm).                             |
+| **Nguyên tắc hoạt động**      | Dựa vào các chỉ báo kỹ thuật để xác định điểm mua hoặc bán cho một cổ phiếu.                        | Tận dụng sự thay đổi trong spread giữa hai cổ phiếu dựa trên các chỉ báo kỹ thuật.                                 |
+| **Phạm vi giao dịch**         | Một cổ phiếu hoặc tài sản.                                                                          | Hai cổ phiếu hoặc tài sản cùng lúc.                                                                                |
+| **Rủi ro**                    | Cao hơn do không đa dạng hóa.                                                                        | Thấp hơn do đa dạng hóa và tận dụng mối tương quan giữa hai cổ phiếu.                                             |
+| **Độ phức tạp**               | Thấp hơn, dễ quản lý và thực hiện.                                                                    | Cao hơn, đòi hỏi quản lý và theo dõi đồng thời hai cổ phiếu.                                                        |
+| **Phù hợp với nhà đầu tư**     | Nhà đầu tư thích sự đơn giản và sẵn sàng chấp nhận rủi ro cao.                                        | Nhà đầu tư muốn đa dạng hóa rủi ro và tận dụng mối tương quan giữa các cổ phiếu.                                   |
+| **Ví dụ cổ phiếu**            | Một cổ phiếu công nghệ như FPT hoặc một cổ phiếu tài chính như VGI.                                | Một cặp cổ phiếu có tương quan âm như VGI và VTL.                                                                 |
+
+---------------------------------------------
+
+-----------------------------------------------------
+
+
+
+# 4. TESTING MODEL VÀ BUILD WEB APP: 
 - Thời gian tới dựng UI cho web app
+
+
+
+
