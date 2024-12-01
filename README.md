@@ -205,6 +205,41 @@ Và cái 1 bảng so sánh kết quả giữa dự đoán với thực tế củ
 - **Khuyến nghị**: Cần thực hiện thêm các bước như điều chỉnh tham số, thử nghiệm với các mô hình khác, và cải thiện độ chính xác tuyệt đối của các mô hình để đạt được kết quả tốt hơn trong dự đoán giá cổ phiếu.
 - **Hướng phát triển**: Nên xem xét việc kết hợp các mô hình (ensemble methods) hoặc sử dụng các kỹ thuật học sâu khác để cải thiện hiệu suất dự đoán.
 
+
+Dựa trên các dữ liệu đã tải lên, bảng chi tiết đánh giá theo từng cổ phiếu đã được hoàn thiện dưới đây:
+
+| **Cổ phiếu** | **Mô hình**    | **Train R²** | **Test R²**  | **Train MAPE%** | **Test MAPE%** | **Nhận xét**                                                                                  |
+|--------------|----------------|--------------|--------------|-----------------|----------------|----------------------------------------------------------------------------------------------|
+| **ELC**      | Ridge          | 0.9938       | 0.9838       | 2.78%          | 2.39%          | Mô hình hoạt động tốt; chỉ số ổn định trên cả tập huấn luyện và kiểm tra.                     |
+|              | LSTM           | 0.9861       | 0.9427       | 4.32%          | 4.37%          | Hiệu suất tốt nhưng nhạy cảm với biến động dữ liệu.                                           |
+|              | ARIMA          | 0.9956       | -5.0019      | 2.14%          | 50.55%         | Mô hình kém ổn định trên tập kiểm tra; không phù hợp với dữ liệu này.                        |
+| **FPT**      | Ridge          | 0.9972       | 0.9935       | 1.51%          | 1.45%          | Hiệu suất tốt nhất trong ba mô hình, đặc biệt trên tập kiểm tra.                             |
+|              | LSTM           | 0.9941       | 0.6955       | 2.32%          | 8.89%          | Mô hình không xử lý tốt các biến động bất thường trong dữ liệu.                              |
+|              | ARIMA          | 0.9974       | -2.3555      | 1.28%          | 34.35%         | Chỉ phù hợp với dữ liệu ít biến động, không hiệu quả trên tập kiểm tra.                      |
+| **SAM**      | Ridge          | 0.9872       | 0.8737       | 2.29%          | 1.84%          | Hiệu suất ổn định nhưng có dấu hiệu overfitting nhẹ.                                         |
+|              | LSTM           | 0.9651       | 0.1735       | 4.68%          | 5.20%          | Hiệu suất kém trên tập kiểm tra, độ chính xác thấp.                                          |
+|              | ARIMA          | 0.9908       | -0.8468      | 1.86%          | 9.00%          | Phù hợp với tập huấn luyện nhưng thất bại trên tập kiểm tra.                                 |
+| **VGC**      | Ridge          | 0.9903       | 0.9396       | 2.51%          | 1.90%          | Mô hình hoạt động ổn định, phù hợp với dữ liệu.                                              |
+|              | LSTM           | 0.9832       | 0.8938       | 3.65%          | 2.61%          | Hiệu suất ổn định nhưng độ chính xác thấp hơn Ridge.                                         |
+|              | ARIMA          | 0.9929       | -1.2397      | 2.06%          | 11.98%         | Hiệu quả kém trên tập kiểm tra, chỉ phù hợp với dữ liệu ổn định.                             |
+| **VTP**      | Ridge          | 0.9885       | 0.9861       | 1.89%          | 2.34%          | Mô hình cho kết quả đáng tin cậy trên cả hai tập dữ liệu.                                    |
+|              | LSTM           | 0.9659       | 0.8789       | 3.47%          | 9.12%          | Nhạy cảm với biến động dữ liệu, độ chính xác giảm trên tập kiểm tra.                         |
+|              | ARIMA          | 0.9832       | -2.1530      | 1.56%          | 41.80%         | Hiệu suất kém trên tập kiểm tra, không phù hợp với dữ liệu này.                              |
+| **VTL**      | Ridge          | 0.9888       | 0.9815       | 1.77%          | 2.98%          | Hiệu suất tốt, phù hợp với cả tập huấn luyện và kiểm tra.                                    |
+|              | LSTM           | 0.9735       | 0.9221       | 3.43%          | 8.23%          | Hiệu suất tốt nhưng không bằng Ridge.                                                        |
+|              | ARIMA          | 0.9701       | -0.4304      | 1.62%          | 46.30%         | Hiệu suất không ổn định, chỉ phù hợp với dữ liệu ít biến động.                                |
+| **DGW**      | Ridge          | 0.9950       | 0.9338       | 3.14%          | 2.02%          | Mô hình Ridge hoạt động ổn định trên cả hai tập.                                             |
+|              | LSTM           | 0.9892       | 0.8498       | 4.53%          | 3.18%          | Hiệu quả giảm trên tập kiểm tra, độ chính xác không bằng Ridge.                              |
+|              | ARIMA          | 0.9969       | -9.1079      | 2.40%          | 32.16%         | Không phù hợp với tập kiểm tra, hiệu suất rất kém.                                           |
+| **CMG**      | Ridge          | 0.9914       | 0.9773       | 2.16%          | 1.94%          | Hiệu suất tốt và ổn định trên cả hai tập dữ liệu.                                            |
+|              | LSTM           | 0.9816       | 0.7669       | 3.37%          | 6.09%          | Nhạy cảm với biến động dữ liệu, hiệu suất giảm trên tập kiểm tra.                            |
+|              | ARIMA          | 0.9924       | -1.1589      | 1.80%          | 19.40%         | Hiệu quả kém trên tập kiểm tra, không phù hợp với dữ liệu này.                               |
+| **CMT**      | Ridge          | 0.9865       | 0.9548       | 3.29%          | 3.16%          | Hoạt động tốt và ổn định.                                                                    |
+|              | LSTM           | 0.9693       | 0.8596       | 5.72%          | 6.69%          | Hiệu suất thấp hơn Ridge trên cả hai tập dữ liệu.                                            |
+|              | ARIMA          | 0.9881       | -0.9829      | 3.10%          | 22.82%         | Không hiệu quả trên tập kiểm tra.                                                            |
+
+Nếu cần thêm phân tích hoặc so sánh cụ thể, bạn hãy cho biết thêm nhé!
+
 -----------------------------------------------------
 
 # 3. Pair Trading Strategy và Reversal Trading Strategy:
