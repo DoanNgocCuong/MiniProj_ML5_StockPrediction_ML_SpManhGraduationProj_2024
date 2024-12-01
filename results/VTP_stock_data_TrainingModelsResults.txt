@@ -1,0 +1,16 @@
+Model: ARIMA Model (order=(5, 1, 0))
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VTP_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9832
+MSE: 2687331.7914
+RMSE: 1639.3083
+MAE: 762.0678
+MAPE%: 1.56%
+
+TEST SET METRICS:
+R2: -2.1530
+MSE: 1401827061.7249
+RMSE: 37440.9810
+MAE: 30941.6199
+MAPE%: 41.80%
+==================================================

@@ -19,18 +19,18 @@ Directional Accuracy (DA): 46.20%
 Model: LSTM Model
 File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VGI_stock_data.csv
 TRAIN SET METRICS:
-R2: 0.9328
-MSE: 2310901.3603
-RMSE: 1520.1649
-MAE: 1087.6446
-MAPE%: 3.80%
+R2: 0.9293
+MSE: 2432949.6376
+RMSE: 1559.7915
+MAE: 1111.4198
+MAPE%: 3.89%
 
 TEST SET METRICS:
-R2: 0.9163
-MSE: 60698704.4137
-RMSE: 7790.9373
-MAE: 5110.1592
-MAPE%: 7.66%
+R2: 0.9347
+MSE: 47338987.3289
+RMSE: 6880.3334
+MAE: 4568.6446
+MAPE%: 7.25%
 ==================================================
 Model: ARIMA Model (order=(5, 1, 0))
 File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024/VGI_stock_data.csv
