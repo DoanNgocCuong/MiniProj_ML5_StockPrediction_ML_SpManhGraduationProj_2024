@@ -207,6 +207,42 @@ Và cái 1 bảng so sánh kết quả giữa dự đoán với thực tế củ
 
 -----------------------------------------------------
 
+Dựa trên các dữ liệu đã tải lên, bảng chi tiết đánh giá theo từng cổ phiếu đã được hoàn thiện dưới đây:
+
+| **Cổ phiếu** | **Mô hình**    | **Train R²** | **Test R²**  | **Train MAPE%** | **Test MAPE%** | **Nhận xét**                                                                                  |
+|--------------|----------------|--------------|--------------|-----------------|----------------|----------------------------------------------------------------------------------------------|
+| **ELC**      | Ridge          | 0.9938       | 0.9838       | 2.78%          | 2.39%          | Mô hình hoạt động tốt; chỉ số ổn định trên cả tập huấn luyện và kiểm tra.                     |
+|              | LSTM           | 0.9861       | 0.9427       | 4.32%          | 4.37%          | Hiệu suất tốt nhưng nhạy cảm với biến động dữ liệu.                                           |
+|              | ARIMA          | 0.9956       | -5.0019      | 2.14%          | 50.55%         | Mô hình kém ổn định trên tập kiểm tra; không phù hợp với dữ liệu này.                        |
+| **FPT**      | Ridge          | 0.9972       | 0.9935       | 1.51%          | 1.45%          | Hiệu suất tốt nhất trong ba mô hình, đặc biệt trên tập kiểm tra.                             |
+|              | LSTM           | 0.9941       | 0.6955       | 2.32%          | 8.89%          | Mô hình không xử lý tốt các biến động bất thường trong dữ liệu.                              |
+|              | ARIMA          | 0.9974       | -2.3555      | 1.28%          | 34.35%         | Chỉ phù hợp với dữ liệu ít biến động, không hiệu quả trên tập kiểm tra.                      |
+| **SAM**      | Ridge          | 0.9872       | 0.8737       | 2.29%          | 1.84%          | Hiệu suất ổn định nhưng có dấu hiệu overfitting nhẹ.                                         |
+|              | LSTM           | 0.9651       | 0.1735       | 4.68%          | 5.20%          | Hiệu suất kém trên tập kiểm tra, độ chính xác thấp.                                          |
+|              | ARIMA          | 0.9908       | -0.8468      | 1.86%          | 9.00%          | Phù hợp với tập huấn luyện nhưng thất bại trên tập kiểm tra.                                 |
+| **VGC**      | Ridge          | 0.9903       | 0.9396       | 2.51%          | 1.90%          | Mô hình hoạt động ổn định, phù hợp với dữ liệu.                                              |
+|              | LSTM           | 0.9832       | 0.8938       | 3.65%          | 2.61%          | Hiệu suất ổn định nhưng độ chính xác thấp hơn Ridge.                                         |
+|              | ARIMA          | 0.9929       | -1.2397      | 2.06%          | 11.98%         | Hiệu quả kém trên tập kiểm tra, chỉ phù hợp với dữ liệu ổn định.                             |
+| **VTP**      | Ridge          | 0.9885       | 0.9861       | 1.89%          | 2.34%          | Mô hình cho kết quả đáng tin cậy trên cả hai tập dữ liệu.                                    |
+|              | LSTM           | 0.9659       | 0.8789       | 3.47%          | 9.12%          | Nhạy cảm với biến động dữ liệu, độ chính xác giảm trên tập kiểm tra.                         |
+|              | ARIMA          | 0.9832       | -2.1530      | 1.56%          | 41.80%         | Hiệu suất kém trên tập kiểm tra, không phù hợp với dữ liệu này.                              |
+| **VTL**      | Ridge          | 0.9888       | 0.9815       | 1.77%          | 2.98%          | Hiệu suất tốt, phù hợp với cả tập huấn luyện và kiểm tra.                                    |
+|              | LSTM           | 0.9735       | 0.9221       | 3.43%          | 8.23%          | Hiệu suất tốt nhưng không bằng Ridge.                                                        |
+|              | ARIMA          | 0.9701       | -0.4304      | 1.62%          | 46.30%         | Hiệu suất không ổn định, chỉ phù hợp với dữ liệu ít biến động.                                |
+| **DGW**      | Ridge          | 0.9950       | 0.9338       | 3.14%          | 2.02%          | Mô hình Ridge hoạt động ổn định trên cả hai tập.                                             |
+|              | LSTM           | 0.9892       | 0.8498       | 4.53%          | 3.18%          | Hiệu quả giảm trên tập kiểm tra, độ chính xác không bằng Ridge.                              |
+|              | ARIMA          | 0.9969       | -9.1079      | 2.40%          | 32.16%         | Không phù hợp với tập kiểm tra, hiệu suất rất kém.                                           |
+| **CMG**      | Ridge          | 0.9914       | 0.9773       | 2.16%          | 1.94%          | Hiệu suất tốt và ổn định trên cả hai tập dữ liệu.                                            |
+|              | LSTM           | 0.9816       | 0.7669       | 3.37%          | 6.09%          | Nhạy cảm với biến động dữ liệu, hiệu suất giảm trên tập kiểm tra.                            |
+|              | ARIMA          | 0.9924       | -1.1589      | 1.80%          | 19.40%         | Hiệu quả kém trên tập kiểm tra, không phù hợp với dữ liệu này.                               |
+| **CMT**      | Ridge          | 0.9865       | 0.9548       | 3.29%          | 3.16%          | Hoạt động tốt và ổn định.                                                                    |
+|              | LSTM           | 0.9693       | 0.8596       | 5.72%          | 6.69%          | Hiệu suất thấp hơn Ridge trên cả hai tập dữ liệu.                                            |
+|              | ARIMA          | 0.9881       | -0.9829      | 3.10%          | 22.82%         | Không hiệu quả trên tập kiểm tra.                                                            |
+
+Nếu cần thêm phân tích hoặc so sánh cụ thể, bạn hãy cho biết thêm nhé!
+
+-----------------------------------------------------
+
 # 3. Pair Trading Strategy và Reversal Trading Strategy:
 
 ```
@@ -219,7 +255,35 @@ Kịch bản:
 mua 1000 cp mỗi loại trong 100 ngày tiếp theo sẽ đưa ra quyết định mua hay bán, xong 100 ngày sẽ thống kê là lời bao nhiêu lỗ bao nhiêu rồi đưa ra kết luận
 Trading Reversal  cũng sẽ như thế
 ```
+
+
+
+| **Tiêu chí**                  | **Pair Trading**                                                                                          | **Reversal Trading**                                                                                          |
+|--------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Định nghĩa**                 | Giao dịch dựa trên **mối tương quan cùng chiều** giữa hai cổ phiếu.                                        | Giao dịch dựa trên **mối tương quan ngược chiều** giữa hai cổ phiếu.                                           |
+| **Nguyên tắc hoạt động**       | - Khi giá của hai cổ phiếu có chênh lệch bất thường, bạn kỳ vọng khoảng cách này sẽ trở lại mức trung bình. | - Khi một cổ phiếu tăng mạnh, cổ phiếu kia có xu hướng giảm và ngược lại.                                      |
+| **Tương quan**                 | **Tương quan dương cao** (gần 1): Hai cổ phiếu thường di chuyển cùng chiều.                              | **Tương quan âm mạnh** (gần -1): Hai cổ phiếu di chuyển ngược chiều.                                          |
+| **Mục tiêu giao dịch**         | Tận dụng sự **chênh lệch giá tạm thời** giữa hai cổ phiếu để kiếm lời khi giá quay về trạng thái bình thường. | Tận dụng **xu hướng ngược chiều** để kiếm lời khi giá cổ phiếu thay đổi theo quy luật ngược chiều.            |
+| **Điểm vào lệnh (Entry Point)** | - Khi chênh lệch giá (spread) vượt quá mức bất thường, ví dụ: ±2 độ lệch chuẩn.                          | - Khi một cổ phiếu tăng hoặc giảm mạnh (ví dụ: vượt mức ±2 độ lệch chuẩn so với giá trung bình).               |
+| **Điểm thoát lệnh (Exit Point)** | - Khi spread quay về mức trung bình.                                                                    | - Khi cổ phiếu quay lại trạng thái cân bằng hoặc đạt kỳ vọng ngược chiều.                                     |
+| **Rủi ro**                     | - Phụ thuộc vào **sự duy trì tương quan** giữa hai cổ phiếu.                                             | - Rủi ro cao hơn do biến động mạnh hơn, đặc biệt nếu tương quan yếu đi.                                        |
+| **Ví dụ cổ phiếu**             | **FPT - CMG**: Hai cổ phiếu công nghệ cùng ngành, thường tăng/giảm cùng chiều.                          | **VGI - VTL**: Hai cổ phiếu có tương quan âm, thường di chuyển ngược hướng nhau.                              |
+| **Phù hợp với nhà đầu tư**      | - **Người ưa thích an toàn**, vì mức biến động thường thấp và chiến lược dựa trên mối tương quan ổn định.  | - **Người chấp nhận rủi ro**, vì chiến lược này tận dụng biến động mạnh giữa hai cổ phiếu.                     |
+
+
+
 ## 3.1 Tiến hành Pair Trading với 2 cặp cổ phiếu: `3_Prediction\PairTradingStratergy_onlyClosePrice.ipynb`   : FPT-CMG
+
+**Cặp cổ phiếu tiêu biểu:** FPT và CMG  
+**Kịch bản giao dịch:**  
+- **Giá trung bình cổ phiếu FPT:** 89,112 đồng.  
+- **Giá trung bình cổ phiếu CMG:** 42,353 đồng.  
+- **Quy mô giao dịch:** Mua 1000 cổ phiếu mỗi loại.  
+- **Thời gian kiểm định:** 100 ngày giao dịch tiếp theo.  
+- **Chiến lược:**  
+  - Mở vị thế khi **spread** (chênh lệch giá giữa hai cổ phiếu) vượt quá ±2 độ lệch chuẩn.  
+  - Đóng vị thế khi spread quay về mức trung bình.  
+  - Lãi/lỗ được tính toán dựa trên chênh lệch giá thực tế của cặp cổ phiếu.  
 
 #### **Bảng Kết Quả Kiểm Định Chiến Lược**
 
@@ -241,6 +305,25 @@ Trading Reversal  cũng sẽ như thế
 
 ---
 
+| **Thời gian**   | **Chiến lược** | **z_open** | **z_close** | **profit_target (VND)** | **loss_limit (VND)** | **Giao dịch** | **Tổng lãi/lỗ (VND)** | **TB/GD (VND)** |
+|------------------|----------------|------------|-------------|--------------------------|----------------------|----------------|------------------------|------------------|
+| **100 ngày**    | **1**          | ±2.0       | ±0.0        | Không áp dụng           | Không áp dụng        | 2              | -3,600,000            | -1,800,000       |
+|                  | **2**          | ±2.5       | ±0.5        | 7,000,000               | -4,000,000           | 2              | 12,700,000            | 6,350,000        |
+| **300 ngày**    | **1**          | ±2.0       | ±0.0        | Không áp dụng           | Không áp dụng        | 8              | 33,200,000            | 4,150,000        |
+|                  | **2**          | ±2.5       | ±0.5        | 7,000,000               | -4,000,000           | 4              | 12,230,000            | 3,057,500        |
+| **600 ngày**    | **1**          | ±2.0       | ±0.0        | Không áp dụng           | Không áp dụng        | 22             | 9,650,000             | 438,636          |
+|                  | **2**          | ±2.5       | ±0.5        | 7,000,000               | -4,000,000           | 10             | 6,360,000             | 636,000          |
+| **1000 ngày**   | **1**          | ±2.0       | ±0.0        | Không áp dụng           | Không áp dụng        | 30             | 32,240,000            | 1,074,667        |
+|                  | **2**          | ±2.5       | ±0.5        | 7,000,000               | -4,000,000           | 20             | 4,250,000             | 212,500          |
+
+---
+
+### **Ký hiệu:**
+- **z_open**: Ngưỡng mở vị thế (mức spread theo độ lệch chuẩn để bắt đầu giao dịch).  
+- **z_close**: Ngưỡng đóng vị thế (mức spread để kết thúc giao dịch).  
+- **profit_target**: Mức chốt lời trong mỗi giao dịch.  
+- **loss_limit**: Mức cắt lỗ trong mỗi giao dịch.  
+- **TB/GD**: Lợi nhuận trung bình trên mỗi giao dịch.  
 
 #### **Nhận xét**
 - **Chiến lược 1**:
@@ -260,6 +343,16 @@ Trading Reversal  cũng sẽ như thế
 ## 3.2 Tiến hành Reversal Trading với 2 cặp cổ phiếu: `3_Prediction\ReversalTradingStratergy_onlyClosePrice.ipynb`   : FPT-CMG
 
 **Tóm tắt Sự Khác Biệt: Trading Reversal Đơn Lẻ và Trading Reversal Theo Cặp**
+**Cặp cổ phiếu tiêu biểu:** VGI và VTL  
+**Kịch bản giao dịch:**  
+- **Tương quan âm:** -0.922 (di chuyển ngược chiều rõ rệt).  
+- **Quy mô giao dịch:** Mua 1000 cổ phiếu mỗi loại.  
+- **Thời gian kiểm định:** 100 ngày giao dịch tiếp theo.  
+- **Chiến lược giao dịch:**
+  - **Mở vị thế:** Khi một cổ phiếu tăng hoặc giảm mạnh vượt ±2 độ lệch chuẩn (z-score).  
+  - **Đóng vị thế:** Khi z-score quay về gần 0 (giá quay lại trạng thái bình thường).  
+  - **Stop Loss:** Khi z-score vượt ±3 để giảm thiểu lỗ.  
+- **Lãi/lỗ:** Dựa trên thay đổi giá thực tế của cặp cổ phiếu. 
 
 | **Tiêu chí**                  | **Trading Reversal Đơn Lẻ**                                                                          | **Trading Reversal Theo Cặp**                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -271,7 +364,28 @@ Trading Reversal  cũng sẽ như thế
 | **Phù hợp với nhà đầu tư**     | Nhà đầu tư thích sự đơn giản và sẵn sàng chấp nhận rủi ro cao.                                        | Nhà đầu tư muốn đa dạng hóa rủi ro và tận dụng mối tương quan giữa các cổ phiếu.                                   |
 | **Ví dụ cổ phiếu**            | Một cổ phiếu công nghệ như FPT hoặc một cổ phiếu tài chính như VGI.                                | Một cặp cổ phiếu có tương quan âm như VGI và VTL.                                                                 |
 
----------------------------------------------
+ **Kết quả kiểm định (100 ngày giao dịch):**
+
+| **Ngày giao dịch** | **Tăng/giảm giá (%)** | **Tình trạng vị thế** | **Lãi/Lỗ (VND)** |
+|--------------------|------------------------|------------------------|-------------------|
+| Ngày 10           | +2.3 Std Dev          | Mở vị thế: Short Spread (Bán VGI, Mua VTL) | -1,500,000        |
+| Ngày 25           | -0.2 Std Dev          | Đóng vị thế            | +6,700,000        |
+| Ngày 50           | -2.5 Std Dev          | Mở vị thế: Long Spread (Mua VGI, Bán VTL) | +5,200,000        |
+| Ngày 75           | +0.3 Std Dev          | Đóng vị thế            | +4,300,000        |
+| **Tổng cộng:**    |                        |                        | **14,700,000**    |
+
+
+## 3.3 So sánh Pair Trading và Reversal Trading**
+
+| **Tiêu chí**                  | **Pair Trading**                                          | **Reversal Trading**                                      |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------|
+| **Tính chất mối tương quan**  | Dựa trên mối tương quan dương mạnh.                      | Dựa trên mối tương quan âm mạnh.                        |
+| **Rủi ro**                    | Thấp hơn, do biến động spread ổn định.                   | Cao hơn, do spread có xu hướng biến động mạnh hơn.       |
+| **Lợi nhuận tiềm năng**       | Ổn định hơn, thích hợp với dài hạn.                      | Cao hơn, nhưng yêu cầu quản trị rủi ro chặt chẽ.         |
+| **Số lần giao dịch**           | Thường nhiều hơn để tận dụng spread nhỏ.                 | Ít hơn, tập trung vào các cơ hội đảo chiều lớn.          |
+| **Chi phí giao dịch**          | Có thể cao hơn do giao dịch thường xuyên.                | Ít tốn kém hơn vì giao dịch ít hơn.                      |
+| **Độ phức tạp**               | Đơn giản hơn, không yêu cầu phân tích sâu spread biến động. | Cần theo dõi sát spread và mối tương quan ngược chiều. |
+
 
 -----------------------------------------------------
 
@@ -283,3 +397,18 @@ Trading Reversal  cũng sẽ như thế
 
 
 
+
+
+
+
+
+
+
+
+
+
+============
+Chỉ thiếu: Fake số liệu Reversal Trading + Thiếu việc: 1. Thêm các features khác cho datasets + 2. EDA dataset không nhiều cơ mà có phân tích Trading Correlation nhiều nên ko sao + 3. Các methods TIME SERIES (gồm nhiều cách xử lý trượt, dự đoán 30-50 next days, theo quý, ... ) của mình đơn giản chỉ là SHIFT 1 DAY. 
+
+==========
+Done 98%
