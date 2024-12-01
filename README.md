@@ -162,5 +162,41 @@ The code: `tscv = TimeSeriesSplit(n_splits=3)` will creat a time-series cross-va
 -----------
 Xem kỹ: `2_code_notebooks_TrainingModel\utils\note2_TrainingModel.md` để hiểu hơn về các model hoạt động?
 
+--------
+### Report 
+
+Dưới đây là đánh giá tổng quan về hiệu suất của các mô hình dự đoán giá cổ phiếu dựa trên các file kết quả trong thư mục `data/raw20192024`:
+
+#### **1. Tổng quan về các mô hình**
+- **Mô hình Ridge Regression**:
+  - Là một trong những mô hình phổ biến cho hồi quy tuyến tính, Ridge Regression đã cho thấy hiệu suất tốt trên nhiều bộ dữ liệu.
+  - Mô hình này có khả năng xử lý tốt các vấn đề đa cộng tuyến và thường cho kết quả ổn định hơn so với hồi quy tuyến tính thông thường.
+
+- **Mô hình LSTM**:
+  - LSTM (Long Short-Term Memory) là một loại mạng nơ-ron hồi tiếp, rất hiệu quả trong việc xử lý dữ liệu chuỗi thời gian.
+  - Mô hình này có khả năng ghi nhớ thông tin lâu dài, giúp cải thiện độ chính xác trong dự đoán giá cổ phiếu.
+
+- **Mô hình ARIMA**:
+  - ARIMA (AutoRegressive Integrated Moving Average) là một mô hình thống kê truyền thống cho chuỗi thời gian.
+  - Mặc dù ARIMA có thể hoạt động tốt với dữ liệu có tính chất chuỗi thời gian, nhưng nó có thể gặp khó khăn với dữ liệu không ổn định hoặc có nhiều biến động.
+
+#### **2. Hiệu suất của các mô hình**
+- **Ridge Regression**:
+  - Hiệu suất tốt trên bộ dữ liệu CMT và SAM với R2 cao (trên 0.98), nhưng gặp khó khăn với dữ liệu DGW và CMT trong tập kiểm tra, cho thấy dấu hiệu của overfitting.
+  - MAPE cho thấy độ chính xác tuyệt đối của mô hình cần cải thiện, đặc biệt là trên dữ liệu chưa thấy.
+
+- **LSTM**:
+  - Mô hình LSTM cho thấy khả năng dự đoán tốt với R2 cao (0.9936 cho FPT), nhưng MAPE cao cho thấy độ chính xác tuyệt đối vẫn cần cải thiện.
+  - LSTM có thể là lựa chọn tốt cho các dữ liệu có tính chất chuỗi thời gian phức tạp.
+
+- **ARIMA**:
+  - Mô hình ARIMA cho thấy hiệu suất kém trong một số bộ dữ liệu, đặc biệt là với R2 âm trong tập kiểm tra, cho thấy mô hình không hoạt động tốt với dữ liệu chưa thấy.
+
+#### **3. Kết luận**
+- **Tổng quan**: Ridge Regression và LSTM là hai mô hình chính cho dự đoán giá cổ phiếu, với Ridge Regression cho kết quả ổn định hơn trong một số trường hợp, trong khi LSTM có khả năng xử lý tốt hơn với dữ liệu chuỗi thời gian phức tạp.
+- **Khuyến nghị**: Cần thực hiện thêm các bước như điều chỉnh tham số, thử nghiệm với các mô hình khác, và cải thiện độ chính xác tuyệt đối của các mô hình để đạt được kết quả tốt hơn trong dự đoán giá cổ phiếu.
+- **Hướng phát triển**: Nên xem xét việc kết hợp các mô hình (ensemble methods) hoặc sử dụng các kỹ thuật học sâu khác để cải thiện hiệu suất dự đoán.
+
+
 # 3. TESTING MODEL VÀ BUILD WEB APP: 
 - Thời gian tới dựng UI cho web app
