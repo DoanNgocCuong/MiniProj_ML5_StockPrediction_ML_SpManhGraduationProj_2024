@@ -207,39 +207,95 @@ Và cái 1 bảng so sánh kết quả giữa dự đoán với thực tế củ
 
 
 Dựa trên các dữ liệu đã tải lên, bảng chi tiết đánh giá theo từng cổ phiếu đã được hoàn thiện dưới đây:
+Dưới đây là bảng được cập nhật với **nhận xét chi tiết** dựa trên các chỉ số:
 
-| **Cổ phiếu** | **Mô hình**    | **Train R²** | **Test R²**  | **Train MAPE%** | **Test MAPE%** | **Nhận xét**                                                                                  |
-|--------------|----------------|--------------|--------------|-----------------|----------------|----------------------------------------------------------------------------------------------|
-| **ELC**      | Ridge          | 0.9938       | 0.9838       | 2.78%          | 2.39%          | Mô hình hoạt động tốt; chỉ số ổn định trên cả tập huấn luyện và kiểm tra.                     |
-|              | LSTM           | 0.9861       | 0.9427       | 4.32%          | 4.37%          | Hiệu suất tốt nhưng nhạy cảm với biến động dữ liệu.                                           |
-|              | ARIMA          | 0.9956       | -5.0019      | 2.14%          | 50.55%         | Mô hình kém ổn định trên tập kiểm tra; không phù hợp với dữ liệu này.                        |
-| **FPT**      | Ridge          | 0.9972       | 0.9935       | 1.51%          | 1.45%          | Hiệu suất tốt nhất trong ba mô hình, đặc biệt trên tập kiểm tra.                             |
-|              | LSTM           | 0.9941       | 0.6955       | 2.32%          | 8.89%          | Mô hình không xử lý tốt các biến động bất thường trong dữ liệu.                              |
-|              | ARIMA          | 0.9974       | -2.3555      | 1.28%          | 34.35%         | Chỉ phù hợp với dữ liệu ít biến động, không hiệu quả trên tập kiểm tra.                      |
-| **SAM**      | Ridge          | 0.9872       | 0.8737       | 2.29%          | 1.84%          | Hiệu suất ổn định nhưng có dấu hiệu overfitting nhẹ.                                         |
-|              | LSTM           | 0.9651       | 0.1735       | 4.68%          | 5.20%          | Hiệu suất kém trên tập kiểm tra, độ chính xác thấp.                                          |
-|              | ARIMA          | 0.9908       | -0.8468      | 1.86%          | 9.00%          | Phù hợp với tập huấn luyện nhưng thất bại trên tập kiểm tra.                                 |
-| **VGC**      | Ridge          | 0.9903       | 0.9396       | 2.51%          | 1.90%          | Mô hình hoạt động ổn định, phù hợp với dữ liệu.                                              |
-|              | LSTM           | 0.9832       | 0.8938       | 3.65%          | 2.61%          | Hiệu suất ổn định nhưng độ chính xác thấp hơn Ridge.                                         |
-|              | ARIMA          | 0.9929       | -1.2397      | 2.06%          | 11.98%         | Hiệu quả kém trên tập kiểm tra, chỉ phù hợp với dữ liệu ổn định.                             |
-| **VTP**      | Ridge          | 0.9885       | 0.9861       | 1.89%          | 2.34%          | Mô hình cho kết quả đáng tin cậy trên cả hai tập dữ liệu.                                    |
-|              | LSTM           | 0.9659       | 0.8789       | 3.47%          | 9.12%          | Nhạy cảm với biến động dữ liệu, độ chính xác giảm trên tập kiểm tra.                         |
-|              | ARIMA          | 0.9832       | -2.1530      | 1.56%          | 41.80%         | Hiệu suất kém trên tập kiểm tra, không phù hợp với dữ liệu này.                              |
-| **VTL**      | Ridge          | 0.9888       | 0.9815       | 1.77%          | 2.98%          | Hiệu suất tốt, phù hợp với cả tập huấn luyện và kiểm tra.                                    |
-|              | LSTM           | 0.9735       | 0.9221       | 3.43%          | 8.23%          | Hiệu suất tốt nhưng không bằng Ridge.                                                        |
-|              | ARIMA          | 0.9701       | -0.4304      | 1.62%          | 46.30%         | Hiệu suất không ổn định, chỉ phù hợp với dữ liệu ít biến động.                                |
-| **DGW**      | Ridge          | 0.9950       | 0.9338       | 3.14%          | 2.02%          | Mô hình Ridge hoạt động ổn định trên cả hai tập.                                             |
-|              | LSTM           | 0.9892       | 0.8498       | 4.53%          | 3.18%          | Hiệu quả giảm trên tập kiểm tra, độ chính xác không bằng Ridge.                              |
-|              | ARIMA          | 0.9969       | -9.1079      | 2.40%          | 32.16%         | Không phù hợp với tập kiểm tra, hiệu suất rất kém.                                           |
-| **CMG**      | Ridge          | 0.9914       | 0.9773       | 2.16%          | 1.94%          | Hiệu suất tốt và ổn định trên cả hai tập dữ liệu.                                            |
-|              | LSTM           | 0.9816       | 0.7669       | 3.37%          | 6.09%          | Nhạy cảm với biến động dữ liệu, hiệu suất giảm trên tập kiểm tra.                            |
-|              | ARIMA          | 0.9924       | -1.1589      | 1.80%          | 19.40%         | Hiệu quả kém trên tập kiểm tra, không phù hợp với dữ liệu này.                               |
-| **CMT**      | Ridge          | 0.9865       | 0.9548       | 3.29%          | 3.16%          | Hoạt động tốt và ổn định.                                                                    |
-|              | LSTM           | 0.9693       | 0.8596       | 5.72%          | 6.69%          | Hiệu suất thấp hơn Ridge trên cả hai tập dữ liệu.                                            |
-|              | ARIMA          | 0.9881       | -0.9829      | 3.10%          | 22.82%         | Không hiệu quả trên tập kiểm tra.                                                            |
+---
 
-Nếu cần thêm phân tích hoặc so sánh cụ thể, bạn hãy cho biết thêm nhé!
+| **Cổ phiếu** | **Mô hình** | **Train R²** | **Test R²** | **Train MAPE%** | **Test MAPE%** | **Nhận xét**                                                                                                   |
+|--------------|-------------|--------------|-------------|-----------------|----------------|---------------------------------------------------------------------------------------------------------------|
+| **ELC**      | Ridge       | 0.9938       | 0.9838      | 2.78%          | 2.39%          | Mô hình có độ chính xác cao (R² cao) và sai số thấp (MAPE thấp) trên cả tập huấn luyện và kiểm tra, cho thấy sự ổn định vượt trội. |
+|              | LSTM        | 0.9861       | 0.9427      | 4.32%          | 4.37%          | Mô hình có khả năng dự đoán tốt (R² khá cao) nhưng MAPE cao hơn Ridge, phản ánh mức độ nhạy cảm với dữ liệu biến động.            |
+|              | ARIMA       | 0.9956       | -5.0019     | 2.14%          | 50.55%         | Mặc dù R² huấn luyện cao, giá trị R² kiểm tra âm và MAPE kiểm tra cao cho thấy mô hình không phù hợp với dữ liệu biến động.       |
+| **FPT**      | Ridge       | 0.9972       | 0.9935      | 1.51%          | 1.45%          | R² rất cao và MAPE thấp trên cả hai tập dữ liệu, chứng minh mô hình dự đoán chính xác và phù hợp với dữ liệu.                      |
+|              | LSTM        | 0.9941       | 0.6955      | 2.32%          | 8.89%          | R² thấp trên tập kiểm tra và MAPE tăng cao phản ánh rằng mô hình không xử lý tốt các biến động bất thường trong dữ liệu.          |
+|              | ARIMA       | 0.9974       | -2.3555     | 1.28%          | 34.35%         | Hiệu quả trên tập huấn luyện (R² cao, MAPE thấp), nhưng thất bại trên tập kiểm tra (R² âm và MAPE cao), không đáng tin cậy.      |
+| **SAM**      | Ridge       | 0.9872       | 0.8737      | 2.29%          | 1.84%          | R² thấp hơn trên tập kiểm tra so với tập huấn luyện, cho thấy khả năng overfitting; tuy nhiên, MAPE thấp đảm bảo độ chính xác.   |
+|              | LSTM        | 0.9651       | 0.1735      | 4.68%          | 5.20%          | R² kiểm tra rất thấp và MAPE cao, mô hình không phù hợp với dữ liệu này.                                       |
+|              | ARIMA       | 0.9908       | -0.8468     | 1.86%          | 9.00%          | R² âm trên tập kiểm tra và MAPE cao phản ánh rằng mô hình thất bại trong việc dự đoán với dữ liệu biến động.                     |
+| **VGC**      | Ridge       | 0.9903       | 0.9396      | 2.51%          | 1.90%          | R² và MAPE ổn định trên cả hai tập, cho thấy mô hình phù hợp với dữ liệu này.                                                     |
+|              | LSTM        | 0.9832       | 0.8938      | 3.65%          | 2.61%          | R² thấp hơn Ridge và MAPE cao hơn, nhưng vẫn chấp nhận được; mô hình phù hợp hơn với dữ liệu có ít nhiễu.                       |
+|              | ARIMA       | 0.9929       | -1.2397     | 2.06%          | 11.98%         | R² âm và MAPE cao trên tập kiểm tra, không thích hợp với dữ liệu có biến động mạnh.                                              |
+| **VTP**      | Ridge       | 0.9885       | 0.9861      | 1.89%          | 2.34%          | R² và MAPE rất ổn định, cho thấy mô hình hoạt động tốt trên cả hai tập dữ liệu.                                                   |
+|              | LSTM        | 0.9659       | 0.8789      | 3.47%          | 9.12%          | R² kiểm tra thấp và MAPE cao cho thấy mô hình nhạy cảm với dữ liệu biến động, giảm hiệu quả dự đoán.                             |
+|              | ARIMA       | 0.9832       | -2.1530     | 1.56%          | 41.80%         | Hiệu quả thấp (R² âm, MAPE cao) trên tập kiểm tra, chỉ phù hợp với dữ liệu ổn định.                                              |
+| **VTL**      | Ridge       | 0.9888       | 0.9815      | 1.77%          | 2.98%          | Mô hình hoạt động ổn định với độ chính xác cao (R² cao và MAPE thấp) trên cả hai tập dữ liệu.                                     |
+|              | LSTM        | 0.9735       | 0.9221      | 3.43%          | 8.23%          | Mặc dù R² kiểm tra thấp hơn Ridge, nhưng mô hình vẫn hoạt động khá tốt; MAPE kiểm tra cao hơn cho thấy độ chính xác giảm nhẹ.    |
+|              | ARIMA       | 0.9701       | -0.4304     | 1.62%          | 46.30%         | Hiệu suất không ổn định, MAPE rất cao trên tập kiểm tra, không phù hợp với dữ liệu có biến động.                                 |
+| **DGW**      | Ridge       | 0.9950       | 0.9338      | 3.14%          | 2.02%          | Mô hình hoạt động ổn định, R² và MAPE ở mức tốt trên cả hai tập dữ liệu.                                                         |
+|              | LSTM        | 0.9892       | 0.8498      | 4.53%          | 3.18%          | Hiệu suất giảm trên tập kiểm tra, độ chính xác không bằng Ridge; nhạy cảm với dữ liệu biến động.                                 |
+|              | ARIMA       | 0.9969       | -9.1079     | 2.40%          | 32.16%         | R² âm và MAPE cao trên tập kiểm tra, mô hình không phù hợp với dữ liệu này.                                                      |
+| **CMG**      | Ridge       | 0.9914       | 0.9773      | 2.16%          | 1.94%          | Hiệu suất tốt và ổn định trên cả hai tập dữ liệu; R² cao và MAPE thấp phản ánh độ chính xác cao.                                |
+|              | LSTM        | 0.9816       | 0.7669      | 3.37%          | 6.09%          | Mô hình giảm hiệu suất trên tập kiểm tra; độ nhạy cao với dữ liệu biến động.                                                     |
+|              | ARIMA       | 0.9924       | -1.1589     | 1.80%          | 19.40%         | Mô hình thất bại trên tập kiểm tra, chỉ phù hợp với dữ liệu ổn định.                                                             |
+| **CMT**      | Ridge       | 0.9865       | 0.9548      | 3.29%          | 3.16%          | Mô hình hoạt động ổn định và phù hợp với dữ liệu, MAPE ở mức chấp nhận được.                                                     |
+|              | LSTM        | 0.9693       | 0.8596      | 5.72%          | 6.69%          | R² thấp và MAPE cao hơn Ridge trên cả hai tập, hiệu suất không bằng Ridge.                                                       |
+|              | ARIMA       | 0.9881       | -0.9829     | 3.10%          | 22.82%         | R² âm và MAPE cao trên tập kiểm tra, không hiệu quả với dữ liệu biến động.                                                       |
 
+--- 
+
+### Giải thích:  
+- **Nhận xét chi tiết** được dựa trên sự kết hợp giữa:
+  - **R²**: Đánh giá mức độ mô hình giải thích sự biến động của dữ liệu (giá trị cao là tốt).  
+  - **MAPE**: Đánh giá độ chính xác của dự đoán dưới dạng phần trăm (giá trị thấp là tốt).  
+- Các nhận xét phản ánh tính phù hợp của từng mô hình với dữ liệu cụ thể, đặc biệt khi so sánh giữa tập huấn luyện và kiểm tra.
+
+Nhận xét chi tiết về các mô hình trong bảng dựa vào dữ liệu:
+1. Ridge Regression: Mô hình tốt nhất tổng quan
+Dựa vào dữ liệu:
+
+R² cao và ổn định: Ridge đạt R² cao trên cả tập huấn luyện và kiểm tra. Ví dụ:
+Với cổ phiếu FPT: Train R² = 0.9972, Test R² = 0.9935.
+Với cổ phiếu ELC: Train R² = 0.9938, Test R² = 0.9838.
+Với cổ phiếu CMG: Train R² = 0.9914, Test R² = 0.9773.
+MAPE thấp: Sai số MAPE trên cả tập huấn luyện và kiểm tra đều thấp, ví dụ:
+Cổ phiếu FPT: Train MAPE = 1.51%, Test MAPE = 1.45%.
+Cổ phiếu SAM: Train MAPE = 2.29%, Test MAPE = 1.84%.
+Hiệu suất tốt trên các cổ phiếu biến động mạnh như VTP và VTL, với chênh lệch nhỏ giữa MAPE train và test.
+Nhận xét: Ridge Regression có độ chính xác cao, khả năng tổng quát tốt, và ít bị ảnh hưởng bởi dữ liệu biến động. Đây là mô hình tốt nhất tổng quan trong bảng.
+
+2. LSTM: Mạnh trong xu hướng dài hạn nhưng nhạy cảm với biến động
+Dựa vào dữ liệu:
+
+R² cao trên tập huấn luyện: LSTM cho thấy khả năng học tốt trên train. Ví dụ:
+Với cổ phiếu ELC: Train R² = 0.9861.
+Với cổ phiếu FPT: Train R² = 0.9941.
+Giảm hiệu suất trên kiểm tra: Chênh lệch R² giữa train và test khá lớn, phản ánh khả năng tổng quát hóa kém:
+Cổ phiếu FPT: Test R² = 0.6955 (chênh lệch lớn với Train R² = 0.9941).
+Cổ phiếu SAM: Test R² = 0.1735 (rất thấp).
+MAPE kiểm tra cao: Thể hiện sự nhạy cảm với dữ liệu biến động, ví dụ:
+Cổ phiếu FPT: Test MAPE = 8.89%.
+Cổ phiếu VTP: Test MAPE = 9.12%.
+Nhận xét: LSTM hoạt động tốt trên tập huấn luyện và có tiềm năng trong việc xử lý xu hướng dài hạn. Tuy nhiên, nó dễ bị nhiễu và giảm hiệu suất đáng kể trên tập kiểm tra.
+
+3. ARIMA: Phù hợp với dữ liệu tĩnh nhưng kém trên dữ liệu biến động
+Dựa vào dữ liệu:
+
+R² âm trên kiểm tra: ARIMA thất bại trên tập kiểm tra với nhiều cổ phiếu, ví dụ:
+Cổ phiếu FPT: Test R² = -2.3555.
+Cổ phiếu ELC: Test R² = -5.0019.
+Cổ phiếu DGW: Test R² = -9.1079.
+MAPE rất cao trên kiểm tra: Sai số kiểm tra vượt xa các mô hình khác, ví dụ:
+Cổ phiếu FPT: Test MAPE = 34.35%.
+Cổ phiếu ELC: Test MAPE = 50.55%.
+Cổ phiếu VTL: Test MAPE = 46.30%.
+Tốt trên tập huấn luyện: ARIMA có R² và MAPE tốt trên tập huấn luyện, nhưng không thể khái quát hóa:
+Cổ phiếu DGW: Train R² = 0.9969, Train MAPE = 2.40%.
+Nhận xét: ARIMA chỉ phù hợp với dữ liệu ít biến động hoặc có tính tĩnh. Hiệu suất kiểm tra kém cho thấy mô hình không đủ mạnh để xử lý dữ liệu phức tạp hoặc có nhiễu.
+
+Kết luận:
+Ridge Regression: Tốt nhất tổng quan vì R² cao, MAPE thấp, và sự ổn định trên cả tập huấn luyện và kiểm tra.
+LSTM: Hiệu quả với xu hướng dài hạn nhưng cần cải thiện khả năng tổng quát hóa để xử lý dữ liệu biến động.
+ARIMA: Chỉ phù hợp với dữ liệu tĩnh hoặc ít biến động; hiệu suất kiểm tra rất kém trên dữ liệu phức tạp.
 -----------------------------------------------------
 
 # 3. Pair Trading Strategy và Reversal Trading Strategy:
