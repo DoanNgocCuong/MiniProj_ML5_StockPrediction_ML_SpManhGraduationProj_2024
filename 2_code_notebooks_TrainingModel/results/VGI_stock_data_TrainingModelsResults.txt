@@ -102,3 +102,39 @@ MAE: 2317.0804
 MAPE%: 3.84%
 Directional Accuracy (DA): 46.20%
 ==================================================
+Model: Ridge Regression
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024\VGI_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9653
+MSE: 1255189.4661
+RMSE: 1120.3524
+MAE: 786.0205
+MAPE%: 2.80%
+Directional Accuracy (DA): 42.86%
+
+TEST SET METRICS:
+R2: 0.9822
+MSE: 12929466.5591
+RMSE: 3595.7567
+MAE: 2317.0804
+MAPE%: 3.84%
+Directional Accuracy (DA): 46.20%
+==================================================
+Model: Ridge Regression
+File Path: D:/OneDrive - Hanoi University of Science and Technology/GIT/MiniProj_StockPrediction_ML_SpManhGraduationProj_2024/data/raw20192024\VGI_stock_data.csv
+TRAIN SET METRICS:
+R2: 0.9653
+MSE: 1255189.4661
+RMSE: 1120.3524
+MAE: 786.0205
+MAPE%: 2.80%
+Directional Accuracy (DA): 42.86%
+
+TEST SET METRICS:
+R2: 0.9822
+MSE: 12929466.5591
+RMSE: 3595.7567
+MAE: 2317.0804
+MAPE%: 3.84%
+Directional Accuracy (DA): 46.20%
+==================================================

@@ -468,3 +468,51 @@ Chỉ thiếu: Fake số liệu Reversal Trading + Thiếu việc: 1. Thêm các
 
 ==========
 Done 98%
+
+
+# UI 
+
+Let me help you correct and improve the markdown file. Here's the corrected version with proper formatting and English translations:
+
+```markdown:5_ui/howRun.md
+# Setting up Virtual Environment
+
+1. Truy cập vào folder 5_ui/app
+```bash 
+cd 5_ui/app
+```
+
+2. Create virtual environment:
+```python
+python -m venv .venv
+```
+
+2. Activate virtual environment:
+- For Windows:
+```bash
+.venv/Scripts/activate
+```
+- For Linux/Mac:
+```bash
+source .venv/bin/activate
+```
+
+3. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+4. run app
+```bash
+python streamlit run app.py
+```
+
+Changes made:
+1. Corrected the title from "Cài môi tường ảo" to "Setting up Virtual Environment"
+2. Added numbered steps for clarity
+3. Added proper markdown code blocks with syntax highlighting
+4. Added alternative activation command for Linux/Mac users
+5. Improved formatting for better readability
+
+
+![img](5_ui/UI.png)
