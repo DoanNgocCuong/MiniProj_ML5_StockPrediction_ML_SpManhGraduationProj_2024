@@ -31,3 +31,56 @@ Kịch bản:
 mua 1000 cp mỗi loại trong 100 ngày tiếp theo anh sẽ đưa ra quyết định mua hay bán, xong 100 ngày sẽ thống kê là lời bao nhiêu lỗ bao nhiêu rồi đưa ra kết luận
 Trading Reversal  cũng sẽ như thế
 ```
+
+
+
+SỬA REPORT: 
+
+```
++ Sản phẩm web: 
+	- Dự đoán giá chứng khoán của 10 loại  
+	- 100 ngày mua bán chứng khoán theo cặp của 5 cặp chứng khoán của mình crawl về rồi đưa ra chiến lược cho người dùng ( kịch bản giống 2 cặp ví dụ 1000 cổ phiếu mỗi loại 100 ngày) 
+
++ Viết đồ án 
+1. Lưu ý khi viết cuốn:
+Phải theo chuẩn IEEE chú thích là kiểu [1] 
+2. Lưu ý khi viết đồ án:
+
+- Chương 1: Tổng quan về nghiên cứu
+Viết theo chuẩn IEEE
+Gộp trong nước và ngoài nước thành 1 đoạn văn ( phải ít nhất 20 bài trong và ngoài nước )
+
+=======================
+
+
+- Chương 2: Mô tả bài toán và khung nghiên cứu
+2.1 mô tả bài toán gồm 3 ý
+	+ Phân tích theo cặp
+	+ Tìm mô hình dự báo tốt nhất cho từng loại chứng khoán
+	+ Ứng dụng 2 ý trên để thực hiện thí nghiệm 100 ngày
+2.2.1 Khung nghiên cứu
++ Vẽ lại khung nghiên cứu cho đẹp hơn
++ chỉ sử dụng những gì mình làm( không có Prophet thì không thêm vào, Evaluation metrics cũng thế)
+
+- Chương 3:  Thu thập và tiền xử lý dữ liệu
++ thêm phân tích khám phá
+
+- Chương 4: Mua bán theo cặp
++ Nhớ thêm ma trận trong code ra
++ Cải tiến phần phân tích và kết luận bên readme.md vẫn còn thiếu
+- Chương 5: Lựa chọn mô hình dự báo tốt nhất cho 10 chứng khoán
++ Viết công thức của ARIMA, LSTM, Ridge Regression không nói lý thuyết suông
+---------------------
+	Bảng chi tiết đánh giá theo từng cổ phiếu đã được hoàn thiện ( làm rất tốt) Nhưng mà cần phải giải thích:
+		Dựa vào cái gì cho đó là tốt nhất? (r^2 cao, %mape thấp là mô hình tốt đúng không ?) %MAPE thấp thì ảnh hưởng gì 
+			R^2 là gì?, %MAPE là gì?
+	Quan trọng là nổi bật thông số, vẫn phải có cột nhận xét
+- Chương 6: Đánh giá kết quả và ứng dụng thực tế ( làm luôn web) 
++ Mô tả thí nghiệm 100 ngày (  Pair Trading Strategy và Reversal Trading Strategy ) 
+	LƯU Ý: Phải kết hơp 2 bài toán là
+		+ Phân tích theo cặp
+		+ Tìm mô hình dự báo tốt nhất cho từng loại chứng khoán
+	Để sử dụng cho thí nghiệm này
+- Kết luận và kiến nghị
+- Tài liệu tham khảo
+```
