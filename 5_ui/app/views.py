@@ -44,7 +44,7 @@ class StockPriceView:
             self.run_reversal_trading()
 
     def run_price_prediction(self):
-        model_list = ["FPT", "CMG", "VGI", "VTL"]
+        model_list = ["FPT", "CMG", "VGI", "VTL", "CMT", "DGW", "ELC", "SAM", "VGC", "VTP"]
         selected_model = st.sidebar.selectbox("Select Stock", model_list)
 
         if self.predictor.load_model(selected_model):
@@ -81,7 +81,7 @@ class StockPriceView:
         )
         
         # Stock selection
-        model_list = ["FPT", "CMG", "VGI", "VTL"]
+        model_list = ["FPT", "CMG", "VGI", "VTL", "CMT", "DGW", "ELC", "SAM", "VGC", "VTP"]
         stock1 = st.sidebar.selectbox("Select Stock 1", model_list)
         stock2 = st.sidebar.selectbox("Select Stock 2", model_list, index=1)
         
@@ -127,7 +127,7 @@ class StockPriceView:
         """)
         
         # Chọn cổ phiếu
-        stock_list = ["FPT", "CMG", "VGI", "VTL"]
+        stock_list = ["FPT", "CMG", "VGI", "VTL", "CMT", "DGW", "ELC", "SAM", "VGC", "VTP"]
         selected_stock = st.sidebar.selectbox("Chọn Cổ Phiếu", stock_list)
         
         # Chọn preset hoặc tùy ch�nh
